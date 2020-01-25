@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import FormInput from "../form-input/FormInput";
 import "./signIn.scss";
-import CustomButton from "../custom-button/CustomButton";
 import { signInWithGoogle } from "../firebase/firebase.utils";
+import { auth } from "../firebase/firebase.utils";
+
+import FormInput from "../form-input/FormInput";
+import CustomButton from "../custom-button/CustomButton";
 
 export default class SignIn extends Component {
 	constructor() {
@@ -10,8 +12,23 @@ export default class SignIn extends Component {
 
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
+			currentUser: null
 		};
+	}
+
+	unsubscribeFromAuth = null;
+
+	componentDidMount() {
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+			this.setState({ currentUser: user });
+
+			console.log(user);
+		});
+	}
+
+	componentWillUnmount() {
+		this.unsubscribeFromAuth();
 	}
 
 	handleInputChange = e => {
