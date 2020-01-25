@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./signIn.scss";
 import { signInWithGoogle } from "../firebase/firebase.utils";
-import { auth } from "../firebase/firebase.utils";
 
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
@@ -12,23 +11,8 @@ export default class SignIn extends Component {
 
 		this.state = {
 			email: "",
-			password: "",
-			currentUser: null
+			password: ""
 		};
-	}
-
-	unsubscribeFromAuth = null;
-
-	componentDidMount() {
-		this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-			this.setState({ currentUser: user });
-
-			console.log(user);
-		});
-	}
-
-	componentWillUnmount() {
-		this.unsubscribeFromAuth();
 	}
 
 	handleInputChange = e => {
