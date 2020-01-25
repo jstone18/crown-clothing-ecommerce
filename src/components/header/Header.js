@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import "./header.scss";
 
 import CartIcon from "../cart-icon/CartIcon";
+import CartDropdown from "../cart-dropdown/CartDropdown";
 
 const Header = ({ currentUser }) => {
 	return (
@@ -31,6 +32,7 @@ const Header = ({ currentUser }) => {
 				)}
 				<CartIcon />
 			</div>
+			<CartDropdown />
 		</div>
 	);
 };
