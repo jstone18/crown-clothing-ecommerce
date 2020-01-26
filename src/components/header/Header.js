@@ -2,7 +2,7 @@ import React from "react";
 import "./header.scss";
 
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/firebase.utils";
+import { auth } from "../../utilities/firebase/firebase.utils";
 import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";

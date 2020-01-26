@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import {
 	auth,
 	createUserProfileDocument
-} from "./components/firebase/firebase.utils";
+} from "./utilities/firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/actions/userActions";
 
