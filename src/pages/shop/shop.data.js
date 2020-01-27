@@ -210,7 +210,7 @@ const SHOP_DATA = [
 				id: 30,
 				name: "Camo Down Vest",
 				imageUrl: "https://i.ibb.co/xJS0T3Y/camo-vest.png",
-				price: 325
+				price: 125
 			},
 			{
 				id: 31,
