@@ -8,14 +8,14 @@ const INITIAL_STATE = {
 			linkUrl: "hats"
 		},
 		{
-			title: "jackets",
-			imageUrl: "https://i.ibb.co/vZ9Fs2j/ethan-kent-w-W9lz-em-Jw-unsplash.jpg",
+			title: "sneakers",
+			imageUrl: "https://i.ibb.co/fYhtkX0/school-aden-2284257-1920.jpg",
 			id: 2,
 			linkUrl: ""
 		},
 		{
-			title: "sneakers",
-			imageUrl: "https://i.ibb.co/fYhtkX0/school-aden-2284257-1920.jpg",
+			title: "jackets",
+			imageUrl: "https://i.ibb.co/vZ9Fs2j/ethan-kent-w-W9lz-em-Jw-unsplash.jpg",
 			id: 3,
 			linkUrl: ""
 		},
