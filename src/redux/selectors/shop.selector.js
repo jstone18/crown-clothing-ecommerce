@@ -9,7 +9,8 @@ export const selectShopCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
 	[selectShopCollections],
-	collections => Object.keys(collections).map(key => collections[key])
+	collections =>
+		collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 export const selectCollection = collectionUrlParam =>
@@ -17,5 +18,5 @@ export const selectCollection = collectionUrlParam =>
 	createSelector(
 		[selectShopCollections],
 		// find collection.id matching the collectionUrlParam of the COLLECTION_ID_MAP
-		collections => collections[collectionUrlParam]
+		collections => (collections ? collections[collectionUrlParam] : null)
 	);
