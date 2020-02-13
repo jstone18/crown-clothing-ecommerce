@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { selectCollection } from "../../redux/selectors/shop.selector";
 
 // Components
-import CollectionItem from "../collection-item/CollectionItem";
+import CollectionItem from "../../components/collection-item/CollectionItem";
 
 const CollectionPage = ({ collection }) => {
 	const { title, items } = collection;

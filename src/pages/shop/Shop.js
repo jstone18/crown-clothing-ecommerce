@@ -6,20 +6,10 @@ import { Route } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
 import { fetchCollectionsStartAsync } from "../../redux/actions/shopActions";
-import CollectionsOverview from "../../components/collections-overview/CollectionsOverview";
-import {
-	selectIsCollectionFetching,
-	selectIsCollectionsLoaded
-} from "../../redux/selectors/shop.selector";
-
-import { createStructuredSelector } from "reselect";
 
 // Components
-import CollectionPage from "../../components/collection/Collection";
-import WithSpinner from "../../components/with-spinner/WithSpinner";
-
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+import CollectionsOverviewContainer from "../../components/collections-overview/CollectionsOverviewContainer";
+import CollectionContainer from "../collection/CollectionContainer";
 class Shop extends Component {
 	componentDidMount() {
 		const { fetchCollectionsStartAsync } = this.props;
@@ -27,36 +17,21 @@ class Shop extends Component {
 	}
 
 	render() {
-		const { match, isCollectionFetching, isCollectionLoaded } = this.props;
+		const { match } = this.props;
 		return (
 			<div className="shop-page">
 				<Route
 					exact
 					path={`${match.path}`}
-					render={props => (
-						<CollectionsOverviewWithSpinner
-							isLoading={isCollectionFetching}
-							{...props}
-						/>
-					)}
+					component={CollectionsOverviewContainer}
 				/>
 				<Route
 					path={`${match.path}/:collectionId`}
-					render={props => (
-						<CollectionPageWithSpinner
-							isLoading={!isCollectionLoaded}
-							{...props}
-						/>
-					)}
+					component={CollectionContainer}
 				/>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = createStructuredSelector({
-	isFetching: selectIsCollectionFetching,
-	isCollectionLoaded: selectIsCollectionsLoaded
-});
-
-export default connect(mapStateToProps, { fetchCollectionsStartAsync })(Shop);
+export default connect(null, { fetchCollectionsStartAsync })(Shop);
