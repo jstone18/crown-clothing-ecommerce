@@ -20,3 +20,8 @@ export const selectCollection = collectionUrlParam =>
 		// find collection.id matching the collectionUrlParam of the COLLECTION_ID_MAP
 		collections => (collections ? collections[collectionUrlParam] : null)
 	);
+
+export const selectIsCollectionFetching = createSelector(
+	[selectShop],
+	shop => shop.isFetching
+);
