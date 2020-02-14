@@ -5,15 +5,15 @@ import { Route } from "react-router-dom";
 
 // Redux
 import { connect } from "react-redux";
-import { fetchCollectionsStartAsync } from "../../redux/actions/shopActions";
+import { fetchCollectionsStart } from "../../redux/actions/shopActions";
 
 // Components
 import CollectionsOverviewContainer from "../../components/collections-overview/CollectionsOverviewContainer";
 import CollectionContainer from "../collection/CollectionContainer";
 class Shop extends Component {
 	componentDidMount() {
-		const { fetchCollectionsStartAsync } = this.props;
-		fetchCollectionsStartAsync();
+		const { fetchCollectionsStart } = this.props;
+		fetchCollectionsStart();
 	}
 
 	render() {
@@ -34,4 +34,4 @@ class Shop extends Component {
 	}
 }
 
-export default connect(null, { fetchCollectionsStartAsync })(Shop);
+export default connect(null, { fetchCollectionsStart })(Shop);
