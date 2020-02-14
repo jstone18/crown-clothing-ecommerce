@@ -4,16 +4,9 @@ import React, { Component } from "react";
 // React Router
 import { Route, Switch, Redirect } from "react-router-dom";
 
-// Firebase
-import {
-	auth,
-	createUserProfileDocument
-} from "./utilities/firebase/firebase.utils";
-
 // Redux
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/actions/userActions";
 import { selectCurrentUser } from "./redux/selectors/user.selectors";
 
 // Pages
@@ -27,15 +20,12 @@ class App extends Component {
 	unsubscribeFromAuth = null;
 
 	componentDidMount() {
-		const { setCurrentUser } = this.props;
-
 		// this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 		// 	// Checks to see if user signs in with the userAuth object
 		// 	if (userAuth) {
 		// 		// if there is a document, returns userRef
 		// 		// if no document, userRef is created with userAuth object
 		// 		const userRef = await createUserProfileDocument(userAuth);
-
 		// 		// listen to userRef for any changes, gets back 1st state of data
 		// 		userRef.onSnapshot(snapShot => {
 		// 			setCurrentUser({
@@ -77,4 +67,4 @@ const mapStateToProps = createStructuredSelector({
 	currentUser: selectCurrentUser
 });
 
-export default connect(mapStateToProps, { setCurrentUser })(App);
+export default connect(mapStateToProps)(App);
