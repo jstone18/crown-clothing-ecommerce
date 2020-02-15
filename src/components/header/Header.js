@@ -7,7 +7,6 @@ import {
 	OptionLink
 } from "./Header.styled";
 
-import { auth } from "../../utilities/firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
 
 import { connect } from "react-redux";
